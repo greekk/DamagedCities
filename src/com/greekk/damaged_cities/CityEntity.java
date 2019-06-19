@@ -2,8 +2,6 @@ package com.greekk.damaged_cities;
 
 public class CityEntity extends EntitySize{
     protected String name;
-    float length;
-    float width;
     protected Damage damage;
 
     private Damage makeDamage(){

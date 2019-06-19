@@ -59,6 +59,14 @@ public final class Cities {
         return parksDamage;
     }
 
+    public static float getStreetsArea(Set<? extends Measurable> entitySet){
+        float area = 0;
+        for (Measurable enity : entitySet) {
+            area += enity.getArea();
+        }
+        return area;
+    }
+
     public static void main(String[] args) {
         //adding of citiess
         addCity("Рудный");
@@ -80,6 +88,10 @@ public final class Cities {
         addPark("Костанай", "Василевского","Центральный", 900f, 700f);
         addPark("Костанай", "Жукова", "Победы",500.56f, 300f);
         addPark("Лисаковск", "Плеханова","Горняцкий" ,300f, 200f);
+
+        //calculate common street area int the particular city
+        float area = getStreetsArea(cities.get("Рудный").streets);
+        System.out.println(area);
 
         System.out.println("damaged area on the streets in the all cities " + calculateStreetDamageInCities()+ " square meters.");
     }
