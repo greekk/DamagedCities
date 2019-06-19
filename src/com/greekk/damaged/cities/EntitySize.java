@@ -1,4 +1,4 @@
-package com.greekk.damaged_cities;
+package com.greekk.damaged.cities;
 
 public class EntitySize implements Measurable{
     protected float length;

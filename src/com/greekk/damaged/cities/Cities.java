@@ -1,4 +1,4 @@
-package com.greekk.damaged_cities;
+package com.greekk.damaged.cities;
 
 import java.util.*;
 

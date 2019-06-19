@@ -1,4 +1,4 @@
-package com.greekk.damaged_cities;
+package com.greekk.damaged.cities;
 
 public class CityEntity extends EntitySize{
     protected String name;
