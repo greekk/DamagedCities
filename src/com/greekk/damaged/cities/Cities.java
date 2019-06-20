@@ -13,26 +13,6 @@ public final class Cities {
         cities.put(cityName, new City());
     }
 
-    //adding street to the sity
-    public static void addStreet(String cityName, String streetName, float length, float width){
-        try{
-            cities.get(cityName).streets.add(new Street(streetName , length, width));
-        }
-        catch(NullPointerException ex){
-            System.out.println("No such city!");
-        }
-    }
-
-    //adding park on the street
-    public static void addPark(String cityName, String streetName, String parkName, float length, float width){
-        try{
-            City city = cities.get(cityName);
-            city.getStreet(streetName).parks.add(new Park(parkName, length, width));
-        }
-        catch(NullPointerException ex){
-            System.out.println("No such city!");
-        }
-    }
     //returns the total damage on the streets in the cities
     public static float calculateStreetDamageInCities(){
         float streetsDamage = 0;
