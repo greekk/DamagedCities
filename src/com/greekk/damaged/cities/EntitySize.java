@@ -1,11 +1,8 @@
 package com.greekk.damaged.cities;
 
-public class EntitySize implements Measurable{
+public abstract class EntitySize implements Measurable{
     protected float length;
     protected float width;
-
-    private EntitySize(){
-    }
 
     public void setLength(float length) {
         this.length = length;

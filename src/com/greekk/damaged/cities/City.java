@@ -17,10 +17,14 @@ public class City {
 
     public Street getStreet(String streetName){
         for (Street street: this.streets) {
-            if(street.name == streetName)
+            if(street.getName() == streetName)
                 return street;
         }
         return null;
+    }
+
+    public float getArea(Set<? extends Measurable>){
+        return
     }
     public String getName(){
         return this.cityName;
@@ -31,6 +35,8 @@ public class City {
         Street street = new Street(streetName , length, width);
         this.streets.add(street);
     }
+
+
 
     @Override
     public boolean equals(Object o) {
