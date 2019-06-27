@@ -6,47 +6,28 @@ public final class CitiesUtil {
 
     private CitiesUtil(){ }
 
-    public static void <? extends CityEntity>addEntity(){
-
-    }
 
     //adding the city
-    public static void addCity(String cityName){
-        cities.put(cityName, new City());
+    public static void addCity(String cityName, Map cities){
+
+        cities.put(cityName, new City(cityName));
     }
 
-    //returns the total damage on the streets in the cities
-    public static float calculateStreetDamageInCities(){
-        float streetsDamage = 0;
-        for(Map.Entry<String, City> item : cities.entrySet()) {
-            City city = item.getValue();
-            for(Street street : city.streets){
-                streetsDamage += street.getDamageArea();
-            }
+    public static float calculateDamage(Collection<? extends Damagable> entities){
+        float commonDamage = 0;
+        for(Damagable item : entities) {
+            commonDamage += item.getDamage();
         }
-
-        return streetsDamage;
-    }
-    //returns the total damage in the parks in the cities
-    public static float calculateParkDamageInCities(){
-        float parksDamage = 0;
-        for(Map.Entry<String, City> item : cities.entrySet()) {
-            City city = item.getValue();
-            for(Street street : city.streets){
-                for (Park park: street.parks) {
-                    parksDamage += park.getDamageArea();
-                }
-            }
-        }
-        return parksDamage;
+        return commonDamage;
     }
 
-    public static float getStreetsArea(Set<? extends Measurable> entitySet){
+    public static float getArea(Collection<? extends Measurable> entities){
         float area = 0;
-        for (Measurable enity : entitySet) {
-            area += enity.getArea();
+        for (Measurable entity : entities) {
+            area += entity.getArea();
         }
         return area;
     }
+
 
 }

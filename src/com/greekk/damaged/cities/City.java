@@ -1,32 +1,42 @@
 package com.greekk.damaged.cities;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class City {
 
     private Set<Street> streets;
+
+    private List<Park> parks;
 
     private String cityName;
 
     public City(String cityName){
         this.cityName = cityName;
         streets = new HashSet<Street>();
+        this.parks = new ArrayList<Park>();
     }
 
     public Street getStreet(String streetName){
         for (Street street: this.streets) {
-            if(street.getName() == streetName)
+            if(street.getName().equals(streetName))
                 return street;
         }
         return null;
     }
 
-    public float getArea(Set<? extends Measurable>){
-        return
+    public List<Street> getStreets(){
+        return this.streets.stream()
+                .collect(Collectors.toList());
     }
-    public String getName(){
+
+    public List<Park> getParks(){
+        return this.parks.stream()
+                .collect(Collectors.toList());
+    }
+
+    public String getCityName(){
         return this.cityName;
     }
 
@@ -36,7 +46,11 @@ public class City {
         this.streets.add(street);
     }
 
+    //adding park on the street
+    public void addPark(String name, float length, float width, Street street){
 
+        this.parks.add(new Park(name, length, width, street));
+    }
 
     @Override
     public boolean equals(Object o) {

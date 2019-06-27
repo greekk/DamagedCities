@@ -2,16 +2,27 @@ package com.greekk.damaged.cities;
 
 import java.util.Objects;
 
-public class Park extends EntitySize{
-    //added just for fun
-    private int amountOfBenches;
-    private String name;
+public class Park extends EntitySize implements Damagable{
 
-    public Park(String name, float length, float width){
+    private String name;
+    private Damage damage;
+    private Street street;
+
+    public Park(String name, float length, float width, Street street){
         this.name = name;
         this.length = length;
         this.width = width;
-        this.amountOfBenches = 200;
+        this.street = street;
+    }
+
+    @Override
+    public void setDamage(Damage damage){
+        this.damage = damage;
+    }
+
+    @Override
+    public float getDamage() {
+        return this.damage.getArea();
     }
 
     @Override
@@ -19,12 +30,11 @@ public class Park extends EntitySize{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Park park = (Park) o;
-        return amountOfBenches == park.amountOfBenches &&
-                name.equals(park.name);
+        return name.equals(park.name) && this.street.equals(park.street) && this.length == park.length && this.width == park.width;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amountOfBenches, name);
+        return Objects.hash(this.name, this.length, this.width);
     }
 }

@@ -1,12 +1,10 @@
 package com.greekk.damaged.cities;
 
-public class Damage extends EntitySize{
+import java.util.Objects;
 
-    Damage(){
+public class Damage extends EntitySize {
 
-    }
-
-    private void setDamage(EntitySize entity){
+    public Damage(EntitySize entity){
         while(true){
             this.length = Math.round(Math.random()*100);
             this.width = Math.round(Math.random()*100);
@@ -16,4 +14,17 @@ public class Damage extends EntitySize{
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Damage damage = (Damage) o;
+        return Float.compare(damage.length, length) == 0 &&
+                Float.compare(damage.width, width) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(length, width);
+    }
 }
