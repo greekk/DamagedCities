@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Park extends EntitySize implements Damagable{
 
-    private String name;
+    private final String name;
     private Damage damage;
     private Street street;
 

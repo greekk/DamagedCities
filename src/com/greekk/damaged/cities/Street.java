@@ -8,8 +8,7 @@ import java.util.stream.Collectors;
 public class Street extends EntitySize implements Damagable {
 
 
-    private String name;
-    private final int hash;
+    private final String name;
     private Damage damage;
 
     //constructor
@@ -17,7 +16,6 @@ public class Street extends EntitySize implements Damagable {
         this.name = name;
         this.length = length;
         this.width = width;
-        this.hash = Objects.hash(name);
     }
 
     @Override
@@ -55,6 +53,6 @@ public class Street extends EntitySize implements Damagable {
 
     @Override
     public int hashCode() {
-        return this.hash;
+        return Objects.hash(name);
     }
 }

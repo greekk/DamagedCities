@@ -10,7 +10,7 @@ public class City {
 
     private List<Park> parks;
 
-    private String cityName;
+    private final String cityName;
 
     public City(String cityName){
         this.cityName = cityName;
